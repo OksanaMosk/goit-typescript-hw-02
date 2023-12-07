@@ -12,9 +12,9 @@ type AllType = {
 };
 
 function compare<
-  top extends AllType["name" & "color"],
-  bottom extends AllType["position" & "weight"]
->(top: Pick<top, keyof AllType>, bottom: Pick<bottom, keyof AllType>): AllType {
+  T extends Pick<AllType, "name" | "color">,
+  U extends Pick<AllType, "position" | "weight">
+>(top: T, bottom: U): AllType {
   return {
     name: top.name,
     color: top.color,
